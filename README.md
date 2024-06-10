@@ -1,9 +1,9 @@
 # API Gateway service
 
 ## Microservice Features
-- ### Routing 
+- ### Routing
+-  ### Load balancing
 - ### Discovery client
-- ### Load balancing
 
 ### (on development) Secured and centralized entrypoint for the rest of microservices 
 
