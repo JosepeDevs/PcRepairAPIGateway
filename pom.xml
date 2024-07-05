@@ -14,7 +14,7 @@
 	<name>TallerPC</name>
 	<description>AuthApiGateway</description>
 	<properties>
-		<java.version>22</java.version>
+		<java.version>21</java.version>
 	</properties>
 	
 	<dependencies>
@@ -221,44 +221,5 @@
 			<optional>true</optional>
 		</dependency>
 	</dependencies>
-
-	<build>
-		<plugins>
-			<plugin>
-			    <groupId>org.openapitools</groupId>
-			    <artifactId>openapi-generator-maven-plugin</artifactId>
-			    <version>7.5.0</version>
-			    <executions>
-			        <execution>
-			            <goals>
-			                <goal>generate</goal>
-			            </goals>
-			            <configuration>
-			                <inputSpec>${project.basedir}/src/main/resources/static/pcMicroservice.yaml</inputSpec>
-		                
-				              <generateApis>true</generateApis>
-					          	<generateModels>true</generateModels>
-					         <!-- <generateSupportingFiles>false</generateSupportingFiles>-->
-
-                         <!--<configOptions>
-
-								<basePackage>com.josepedevs</basePackage>
-               					<sourceFolder>src/main/java</sourceFolder>
-                				<hideGenerationTimestamp>true</hideGenerationTimestamp>
-                				<swaggerDirectory>${basedir}/generated/swagger-ui</swaggerDirectory>
-	                            <outputPath>${project.basedir}/generated/document.html</outputPath>-->
- 
-				                <generatorName>spring</generatorName>
-							    <packageName>com.josepedevs</packageName>
-							    <apiPackage>com.josepedevs.Infra.rest</apiPackage>
-							    <modelPackage>com.josepedevs.domain.dto</modelPackage>
-                         <!-- </configOptions>-->	
-
-			            </configuration>
-			        </execution>
-			    </executions>
-			</plugin>
-		</plugins>
-	</build>
 
 </project>
