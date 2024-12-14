@@ -3,16 +3,16 @@ package com.josepedevs.domain.dto.valueobjects;
 import com.josepedevs.domain.exceptions.EmailNotValidException;
 import com.josepedevs.domain.exceptions.LongInputException;
 import com.josepedevs.domain.repository.AuthRepository;
-import lombok.Getter;
-import org.springframework.stereotype.Component;
+import lombok.Builder;
+import lombok.Data;
 
-@Getter
-@Component
+@Data
+@Builder(toBuilder = true)
 public class UsernameVo {
 
-    private final String username;
+    private  String username;
 
-    private final AuthRepository authRepository;
+    private  AuthRepository authRepository;
 
     public UsernameVo(String username, AuthRepository authRepository) {
         this.authRepository = authRepository;

@@ -1,18 +1,14 @@
 package com.josepedevs.domain.dto;
 
-import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@Builder
-@AllArgsConstructor
-@NoArgsConstructor
+@Builder(toBuilder = true)
 public class RegisterRequest {
 
-	private String username;
-	private String email;
-	private String psswrd;
+	private final String username;
+	private final String email;
+	private final String psswrd;
 	
 }

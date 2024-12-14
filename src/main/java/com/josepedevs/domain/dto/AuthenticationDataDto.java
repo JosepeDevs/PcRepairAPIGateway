@@ -1,27 +1,20 @@
 package com.josepedevs.domain.dto;
 
-import org.springframework.stereotype.Component;
+import lombok.Builder;
+import lombok.Data;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
-@Component
+@Data
+@Builder(toBuilder = true)
 public class AuthenticationDataDto {
 	
-	private String username;
-    private String email;
-    private String psswrd;
-    private String psswrdSalt;
-    private String registrationToken;
-    private String psswrdChangeToken;
-    private String psswrdChangeIssueDate;
-    private String loginToken;
+	private final String username;
+    private final String email;
+    private final String psswrd;
+    private final String psswrdSalt;
+    private final String registrationToken;
+    private final String psswrdChangeToken;
+    private final String psswrdChangeIssueDate;
+    private final String loginToken;
     private boolean active;
     
 }
