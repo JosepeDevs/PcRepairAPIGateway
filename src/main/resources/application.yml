@@ -4,11 +4,6 @@ spring:
     name: AuthApiGateway
   banner:
     location: JPD.txt
-  datasource:
-    url: ${DB_URL} # this is from AWS RDS
-    username: ${DB_USER}  # this is from AWS RDS
-    password: ${DB_PSSWRD} # this is from AWS RDS
-    driver-class-name: org.postgresql.Driver
   jpa:
     properties:
       generate-ddl: true
@@ -25,22 +20,26 @@ spring:
           lowerCaseServiceId: true
           lower-case-service-id: true
       routes:
-        - id: AUTHMANAGER
-          uri: lb://AUTHMANAGER
-          predicates:
-            - Path=/AUTHMANAGER/**
         - id: PERSONMANAGER
           uri: lb://PERSONMANAGER
           predicates:
             - Path=/PERSONMANAGER/**
-#CONFIGURATION TO ALLOW SPRING WEB AND APIGATEWAY TO BE BOTH PRESENT            
+          filters:
+            - StripPrefix=1 # Remove the first path segment before forwarding (p.e. PERSONMANAGER)
+        - id: PERSONBATCH
+          uri: lb://PERSONBATCH
+          predicates:
+            - Path=/PERSONBATCH/**
+          filters:
+            - StripPrefix=1
+  #CONFIGURATION TO ALLOW SPRING WEB AND APIGATEWAY TO BE BOTH PRESENT
   main:
     web-application-type: reactive
     allow-bean-definition-overriding: true
 
 # SERVER CONFIGURATION
 server:
-  port: 7777 
+  port: ${SERVER_PORT:7777}
 logging:
   level:
    "[org.springframework.web]": INFO
@@ -62,10 +61,4 @@ eureka:
     fetch-registry: true
     register-with-eureka: true
     service-url:
-     defaultZone: http://${EUREKA_INSTANCE_HOSTNAME}:${EUREKA_PORT}/eureka
-     
-
-
-     
-     
-     
+      defaultZone: http://${EUREKA_INSTANCE_HOSTNAME:localhost}:${EUREKA_PORT:9876}/eureka

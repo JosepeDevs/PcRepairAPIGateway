@@ -1,0 +1,16 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Api Gw 7777" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="21" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
+    <envs>
+      <env name="EUREKA_INSTANCE_HOSTNAME" value="localhost" />
+      <env name="SERVER_PORT" value="7777" />
+      <env name="SECRET_KEY" value="AnyRealProdKeyWouldNotBeHere" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.josepedevs.apigateway.AuthApiGateWay" />
+    <module name="AuthApiGateway" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
