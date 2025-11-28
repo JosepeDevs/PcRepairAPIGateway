@@ -1,0 +1,15 @@
+<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="api gw 7777" type="Application" factoryName="Application">
+    <envs>
+      <env name="SECRET_KEY" value="AnyRealProdKeyWouldNotBeHere" />
+      <env name="EUREKA_INSTANCE_HOSTNAME" value="localhost" />
+      <env name="SERVER_PORT" value="7777" />
+    </envs>
+    <option name="MAIN_CLASS_NAME" value="com.josepedevs.apigateway.AuthApiGateWay" />
+    <module name="AuthApiGateway" />
+    <option name="PROGRAM_PARAMETERS" value="---spring.profiles.active=oracle" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>
